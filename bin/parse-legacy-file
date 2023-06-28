@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+get_legacy_version() {
+  current_file="$1"
+  basename="$(basename -- "$current_file")"
+
+  if [ "$basename" == ".php-version" ]; then
+    PHP_VERSION="$(cat "$current_file")"
+  fi
+
+  echo "$PHP_VERSION"
+}
+
+get_legacy_version "$1"
